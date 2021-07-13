@@ -1,145 +1,140 @@
-# Welcome to your new ignited app!
+# NextJS Boilerplate
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
+An opinionated boilerplate to kickstart projects using NextJS
 
-## The latest and greatest boilerplate for Infinite Red opinions
+**Features**
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+- 👏🏼 Next 11
+- ⚛️ React 17
+- 🌊 Custom Document and App
+- ⌨️ Type safety using TypeScript in strict mode
+- 💄 Write SCSS & future CSS with PostCSS + preset-env
+- 🖊 SVG sprite for icons
+- 👀 Lint your code with ESLint & Stylelint
+- 🌈 Prettier for consistent code style
+- 🔨 Jest + [Testing Library](https://testing-library.com/) for tests
+- ☝️ Husky + lint-staged for code quality assurance
+- ⚙️ Editorconfig file for consistent indents
+- 🗄 Redux with `react-redux` and `redux-thunk`
 
-Currently includes:
+## Variation branches
 
-- React Native
-- React Navigation
-- MobX State Tree
-- TypeScript
-- And more!
+### [Custom server](https://github.com/sanjaytwisk/nextjs-ts/tree/custom-server)
 
-## Quick Start
-
-The Ignite boilerplate project's structure will look similar to this:
-
-```
-ignite-project
-├── app
-│   ├── components
-│   ├── i18n
-│   ├── utils
-│   ├── models
-│   ├── navigators
-│   ├── screens
-│   ├── services
-│   ├── theme
-│   ├── app.tsx
-├── storybook
-│   ├── views
-│   ├── index.ts
-│   ├── storybook-registry.ts
-│   ├── storybook.ts
-│   ├── toggle-storybook.tsx
-├── test
-│   ├── __snapshots__
-│   ├── storyshots.test.ts.snap
-│   ├── mock-i18n.ts
-│   ├── mock-reactotron.ts
-│   ├── setup.ts
-│   ├── storyshots.test.ts
-├── README.md
-├── android
-│   ├── app
-│   ├── build.gradle
-│   ├── gradle
-│   ├── gradle.properties
-│   ├── gradlew
-│   ├── gradlew.bat
-│   ├── keystores
-│   └── settings.gradle
-├── ignite
-│   ├── ignite.json
-│   └── plugins
-├── index.js
-├── ios
-│   ├── IgniteProject
-│   ├── IgniteProject-tvOS
-│   ├── IgniteProject-tvOSTests
-│   ├── IgniteProject.xcodeproj
-│   └── IgniteProjectTests
-├── .env
-└── package.json
-
+```sh
+git clone -b custom-server --single-branch git@github.com:sanjaytwisk/nextjs-ts.git
 ```
 
-### ./app directory
+### [Enzyme](https://github.com/sanjaytwisk/nextjs-ts/tree/enzyme)
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
-
-The inside of the src directory looks similar to the following:
-
-```
-app
-│── components
-│── i18n
-├── models
-├── navigators
-├── screens
-├── services
-├── theme
-├── utils
-└── app.tsx
+```sh
+git clone -b enzyme --single-branch git@github.com:sanjaytwisk/nextjs-ts.git
 ```
 
-**components**
-This is where your React components will live. Each component will have a directory containing the `.tsx` file, along with a story file, and optionally `.presets`, and `.props` files for larger components. The app will come with some commonly used components like Button.
+### [No redux](https://github.com/sanjaytwisk/nextjs-ts/tree/no-redux)
 
-**i18n**
-This is where your translations will live if you are using `react-native-i18n`.
+```sh
+git clone -b no-redux --single-branch git@github.com:sanjaytwisk/nextjs-ts.git
+```
 
-**models**
-This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
+## Getting started
 
-**navigators**
-This is where your `react-navigation` navigators will live.
+Before you can start developing your awesome application you need to install the project's dependencies. Make sure you have Node (>= 10.13.0) and NPM installed and run:
 
-**screens**
-This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
+```sh
+$ npm install
+```
 
-**services**
-Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
+### ⌨️ Development
 
-**theme**
-Here lives the theme for your application, including spacing, colors, and typography.
+Once all dependencies have been installed you can start development. To start a development server on [http://localhost:3000](http://localhost:3000) run:
 
-**utils**
-This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truely shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
+```sh
+$ npm run dev
+```
 
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
+### 🖥 Production
 
-### ./ignite directory
+To run your application in production make sure to run a build first:
 
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find generators, plugins and examples to help you get started with React Native.
+```sh
+$ npm run build
+```
 
-### ./storybook directory
+And then start you application with a provided port number (defaults to 3000 if not provided):
 
-This is where your stories will be registered and where the Storybook configs will live.
+```sh
+$ PORT=8080 npm run start
+```
 
-### ./test directory
+### 🖨 Static
 
-This directory will hold your Jest configs and mocks, as well as your [storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) test file. This is a file that contains the snapshots of all your component storybooks.
+You can export your application to a static website as well:
 
-## Running Storybook
+```sh
+npm run export
+```
 
-From the command line in your generated app's root directory, enter `yarn run storybook`
-This starts up the storybook server and opens a story navigator in your browser. With your app
-running, choose Toggle Storybook from the developer menu to switch to Storybook; you can then
-use the story navigator in your browser to change stories.
+This will render static HTML pages into `./out`
 
-For Visual Studio Code users, there is a handy extension that makes it easy to load Storybook use cases into a running emulator via tapping on items in the editor sidebar. Install the `React Native Storybook` extension by `Orta`, hit `cmd + shift + P` and select "Reconnect Storybook to VSCode". Expand the STORYBOOK section in the sidebar to see all use cases for components that have `.story.tsx` files in their directories.
+### 🧐 Linters
 
-## Running e2e tests
+The boilerplate provides a couple of linters to help you keep an eye on code consistency and type safety. There are three linters: one for CSS, one for TypeScript and one for type safety. You can use each of them separately using the following commands:
 
-Read [e2e setup instructions](./e2e/README.md).
+```sh
+$ npm run lint:css
+$ npm run lint:ts
+$ npm run lint:types
+```
 
-## Previous Boilerplates
+TIP: To get the most out of your linters install the corresponding (Stylelint, TSLint) plugins for your editor or IDE
 
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
+**Prettier**
+
+Prettier helps you to enforce consistent (opinionated) code style. If possible, you can tell your editor to format you code when you save a file. If you are not able to do this, you can run prettier manually using:
+
+```sh
+$ npm run prettier
+```
+
+### 🤖 Tests
+
+You can write your tests using Jest and Enzyme. You can run all test with the following command
+
+```sh
+$ npm run test
+```
+
+If you want to follow test driven development you can use:
+
+```sh
+$ npm run test:dev
+```
+
+## Modules
+
+### TypeScript
+
+TypeScript and Babel are pre-configured with custom module resolvers.
+This means you can use absolute imports with custom namespaces by default for the following modules:
+
+```js
+/* import common library */
+import lib from '@common/<folder>/<lib>'
+/* import component */
+import Counter from '@components/counter/Counter'
+/* import container */
+import HomepageCounter from '@containers/counter/HomepageCounter'
+/* import store files */
+import { CounterAction } from '@store/counter/counterActions'
+```
+
+### SCSS
+
+By default the path `./src/common/css` is configured as an included path for our scss loader.
+This means you can import any of this folder's files directly without the relative or absolute path:
+
+```css
+@import 'variables';
+@import 'colors';
+```
